@@ -16,9 +16,12 @@ class Peminjaman extends CI_Controller {
         $data = array(
             'title' => 'List Peminjaman',
             'content' => 'peminjaman/vpeminjaman',
-            'data'=>  $this->peminjaman->get_data()
-        // print_r($data);
+            'data'=>  $this->peminjaman->get_data(),
+            'model' => $this->peminjaman
+        
         );
+        // $s = $this->peminjaman->get_data();
+        // print_r($s);
         // $data['data'] = $this->M_Peminjaman->get_data($table);
         $this->load->view('template/view', $data);
 	}

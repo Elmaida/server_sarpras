@@ -4,8 +4,9 @@
 
         function get_data($table='tb_peminjaman')
         {
-            $query = $this->db->get($table);
-            return $query->result();
+            return $this->db->query("SELECT p.id_pinjam, b.nama, u.nama_user, p.jumlah, p.status_transaksi FROM tb_peminjaman AS p
+            JOIN tb_barang AS b ON b.id_barang=p.id_barang
+            JOIN tb_user as u ON u.id_user=p.id_user")->result();
         }
 
         function get_byid($id)
@@ -14,16 +15,29 @@
             ->get('tb_peminjaman')->row_array();
         }
         
-        public function hitung_jumlah()
+        public function hitung_stok()
         {
-            $this->db->select_sum('stok');
-            $query = $this->db->get('tb_barang');
-            if($query->num_rows()>0)
-            {
-                return $query->row()->stok;
-            }else{
-                return 0;
-            }
+            return $this->db->query("SELECT sum(stok) barang FROM tb_barang")->row();
+        }
+
+        public function jumlah_barang()
+        {
+            return $this->db->query("SELECT count(id_barang) barang FROM tb_barang")->row();
+        }
+
+        public function jumlah_peminjam()
+        {
+            return $this->db->query("SELECT count(id_pinjam) pinjam FROM tb_peminjaman")->row();
+        }
+
+        public function jumlah_kategori()
+        {
+            return $this->db->query("SELECT count(id_kategori) kategori FROM tb_kategori")->row();
+        }
+
+        public function jumlah_user()
+        {
+            return $this->db->query("SELECT count(id_user) user FROM tb_user")->row();
         }
     }
     ?>

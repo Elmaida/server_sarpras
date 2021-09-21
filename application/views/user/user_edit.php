@@ -38,7 +38,7 @@
                                 <label for="token" class="form-label">Token</label>
                                 <input type="text" class="form-control" name="token" value="<?= $token ?>" placeholder="Masukkan Token">
                             </div>
-                            <input type="hidden" name="id_user" value="<?= $id_user?>">
+                            <input type="hidden" name="id" value="<?= $id_user?>">
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </form>
                     </div>

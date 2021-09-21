@@ -58,21 +58,29 @@ class User extends CI_Controller {
     {
         $this->load->model('M_User','user');
         $data = $this->user->get_byid($id);
+        // print_r($data);
         $this->load->view('user/user_edit',$data);
     }
 
     public function update()
     {
-        $post = $this->input->post();
         $this->load->model('M_User','user');
+        $post = $this->input->post();
 
         $nim = $post['nim'];
-        $nama_user = $post['nama_user'];
+        $nama_user = $post['nama'];
         $jurusan = $post['jurusan'];
         $alamat = $post['alamat'];
         $no_hp = $post['no_hp'];
         $token = $post['token'];
         $id = $post['id'];
+
+        // print_r($nim);
+        // print_r($nama_user);
+        // print_r($jurusan);
+        // print_r($alamat);
+        // print_r($no_hp);
+        // print_r($id);
 
         if ($nim == null || $nama_user == null || $jurusan== null || $alamat == null || $no_hp == null  ){
             echo"Kolom tidak boleh kosong! ";
@@ -85,7 +93,7 @@ class User extends CI_Controller {
                 'no_hp' => $no_hp,
             );
 
-            $this->user->ubah_data($data);
+            $this->user->ubah_data($id, $data);
             redirect('user');
         }
     }

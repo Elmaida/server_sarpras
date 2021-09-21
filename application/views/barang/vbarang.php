@@ -31,7 +31,7 @@
                     <tr class="text-center">
                         <th scope="row" class="text-center" ><?= ++$no ?></th>
                         <td><?= $key->nama?></td>
-                        <td><?= $key->id_kategori?></td>
+                        <td><?= $key->nama_kategori?></td>
                         <td><?= $key->stok?></td>
                         <td><?= $key->harga?></td>
                         <td><?= $key->tanggal?></td>

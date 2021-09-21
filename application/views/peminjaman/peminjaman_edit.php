@@ -14,10 +14,10 @@
                     </div>
                     <div class="card-body">
                         <form action="<?= base_url()?>peminjaman/update" method="post">
-                        <div class="mb-3">
-                                <label for="id_user" class="form-label">Nama Peminjam</label>
-                                <input type="text" class="form-control" name="id_user" value="<?= $id_user ?>" placeholder="Masukkan Nama Peminjam">
-                            </div>
+                        <div class = "mb-3">
+                            <label for="id_user" class = "form-label"> Nama Peminjam</label>
+                            <input type="text" class ="form-control" name ="id_user" value="<?= $id_user?>" placeholder="Masukkan Nama Peminjam">
+                        </div>
                             <div class="mb-3">
                                 <label for="id_barang" class="form-label">Nama Barang</label>
                                 <input type="text" class="form-control" name="id_barang"  value="<?= $id_barang ?>" placeholder="Masukkan Nama Barang">

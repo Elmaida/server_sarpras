@@ -2,22 +2,23 @@
 
     class M_Peminjaman extends CI_Model {
 
-        function get_data($table='tb_peminjaman')
+        function get_data()
         { 
-            // $this->db->select('*');
-            // $this->db->from('tb_peminjaman');
-            // $this->db->join('tb_barang', 'tb_barang.id_barang=tb_peminjaman.id_barang');
-            // $this->db->join('tb_kategori', 'tb_kategori.id_kategori=tb_barang.id_kategori');
-            // $this->db->join('tb_user', 'tb_user.id_user=tb_peminjaman.id_user');
-
-            // return $this->db->from ('tb_peminjaman AS p')
-            // ->join('tb_user AS u', 'p.id_user = u.id_user' )
-            // ->join('tb_kategori AS k', 'p.id_kategori = k.id_kategori' )
-            // ->join('tb_barang AS b', 'p.id_barang = b.id_barang' )
-            // ->get($table)
+            return $this->db->query("SELECT p.id_pinjam, b.nama, u.nama_user, p.tanggal_pinjam, p.tanggal_kembali, p.jumlah, p.status_transaksi, p.status_pengajuan, k.nama_kategori FROM tb_peminjaman AS p
+            JOIN tb_barang AS b ON b.id_barang=p.id_barang
+            JOIN tb_user as u ON u.id_user=p.id_user
+            JOIN tb_kategori as k ON k.id_kategori=p.id_kategori")->result();
+            // return $this->db->from('tb_peminjaman AS b')
+            // ->join('tb_kategori AS k', 'k.id_kategori = b.id_kategori')
+            // ->join('tb_barang AS a', 'a.id_barang = b.id_barang')
+            // ->join('tb_user AS u', 'u.id_user = b.id_user')
+            // ->get('tb_peminjaman')
             // ->result();
-            $query = $this->db->get($table);
-            return $query->result();
+        }
+
+        function get_id($table, $where)
+        {
+            return $this->db->get_where($table, $where)->row_array();
         }
 
         function tambah_data($post)

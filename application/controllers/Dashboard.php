@@ -13,12 +13,14 @@ class Dashboard extends CI_Controller {
 		$data = array(
 			'title' => 'Dashboard Admin',
 			'content' => 'dashboard/dashboard',
-			'data'=>  $this->dashboard->get_data()
+			'data'=>  $this->dashboard->get_data(),
+			'stok'=> $this->dashboard->hitung_stok(),
+			'id_barang'=> $this->dashboard->jumlah_barang(),
+			'id_pinjam'=> $this->dashboard->jumlah_peminjam(),
+			'id_kategori'=> $this->dashboard->jumlah_kategori(),
+			'id_user'=> $this->dashboard->jumlah_user(),
 		);
 		$this->load->view('template/view', $data);
-	}
-	public function total()
-	{
-		$data['total']=$this->model->hitung_jumlah();
+		
 	}
 }

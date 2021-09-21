@@ -30,29 +30,33 @@
                         </tr>
                     </thead>
                 <tbody>
-                    <?php $no= 0; foreach ($data as $row): ?>
+                    <?php $no= 0; foreach ($data as $row): 
+                    //cara ngakali
+                        // $user = $model->get_id('tb_user', array('id_user' => $row->id_user));
+                        // $barang = $model->get_id('tb_barang', array('id_barang' => $row->id_barang));
+                        ?>
                     <tr class="text-center">
                         <th scope="row" class="text-center" ><?= ++$no ?></th>
-                        <td><?= $row->id_user?></td>
-                        <td><?= $row->id_barang?></td>
-                        <td><?= $row->id_kategori?></td>
+                        <td><?= $row->nama_user?></td>
+                        <td><?= $row->nama?></td>
+                        <td><?= $row->nama_kategori?></td>
                         <td><?= $row->tanggal_pinjam?></td>
                         <td><?= $row->tanggal_kembali?></td>
                         <td><?= $row->jumlah?></td>
                         <td>
                         <?php if ($row->status_transaksi == 0) { ?> 
-                            <a href="peminjaman/edit/<?= $row->status_transaksi ?>" class="btn btn-warning btn-sm">Pinjam</a>
+                            <a href="#<?= $row->status_transaksi ?>" class="btn btn-warning btn-sm">Pinjam</a>
                             <?php } elseif ($row->status_transaksi == 1) { ?> 
-                                <a href="peminjaman/edit/<?= $row->status_transaksi ?>" class="btn btn-primary btn-sm">Kembali</a>
+                                <a href="#<?= $row->status_transaksi ?>" class="btn btn-primary btn-sm">Kembali</a>
                         <?php } else { ?>
-                            <a href="peminjaman/edit/<?= $row->status_transaksi ?>" class="btn btn-danger btn-sm">Hilang</a>
+                            <a href="#<?= $row->status_transaksi ?>" class="btn btn-danger btn-sm">Hilang</a>
                         <?php } ?> 
 
                         </td>
                         <td><?php if ($row->status_pengajuan == 0) { ?> 
-                            <a href="peminjaman/edit/<?= $row->status_pengajuan ?>" class="btn btn-success btn-sm">Diterima</a></td>
+                            <a href="#<?= $row->status_pengajuan ?>" class="btn btn-success btn-sm">Diterima</a></td>
                         <?php } else { ?>
-                            <a href="peminjaman/edit/<?= $row->status_pengajuan?>" class="btn btn-danger btn-sm">Ditolak</a>
+                            <a href="#<?= $row->status_pengajuan?>" class="btn btn-danger btn-sm">Ditolak</a>
                             <?php } ?> 
                   
                         <td>
