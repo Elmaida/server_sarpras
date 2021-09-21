@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Sep 2021 pada 06.40
+-- Waktu pembuatan: 21 Sep 2021 pada 11.42
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.2
 
@@ -34,7 +34,7 @@ CREATE TABLE `tb_barang` (
   `nama` varchar(40) NOT NULL,
   `stok` int(20) NOT NULL,
   `harga` int(20) NOT NULL,
-  `tanggal` datetime(6) NOT NULL,
+  `tanggal` date NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -43,11 +43,13 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id_barang`, `id_kategori`, `nama`, `stok`, `harga`, `tanggal`, `create_date`) VALUES
-(1, 1, 'Laptop', 15, 5780000, '2021-09-02 12:41:09.000000', '2021-09-17 05:45:11'),
-(2, 1, 'Monitor', 5, 7500000, '2021-09-07 12:41:09.000000', '2021-09-17 05:45:25'),
-(3, 1, '1', 1, 2000, '0000-00-00 00:00:00.000000', '2021-09-17 08:23:14'),
-(4, 1, 'handphone', 1, 2000, '2021-09-17 15:28:20.000000', '2021-09-17 08:28:20'),
-(5, 5, 'Monitor Samsung', 10, 2000000, '2021-09-17 17:06:30.000000', '2021-09-17 10:06:30');
+(2, 1, 'Monitor', 5, 7500000, '2021-09-07', '2021-09-17 05:45:25'),
+(3, 1, 'Kabel Panjang', 20, 50000, '2021-09-06', '2021-09-19 02:13:43'),
+(4, 1, 'handphone', 1, 2000, '2021-09-17', '2021-09-17 08:28:20'),
+(5, 5, 'Monitor Samsung', 10, 2000000, '2021-09-17', '2021-09-17 10:06:30'),
+(6, 1, 'Keyboard Logitec', 6, 380000, '2021-01-26', '2021-09-21 05:13:43'),
+(7, 1, 'Mouse Logitec', 6, 120000, '2021-09-15', '2021-09-21 04:12:06'),
+(8, 4, 'Bolpoin', 7, 5000, '2021-09-17', '2021-09-21 04:53:06');
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,9 @@ CREATE TABLE `tb_kategori` (
 INSERT INTO `tb_kategori` (`id_kategori`, `nama_kategori`) VALUES
 (1, 'Barang Elektronik'),
 (2, 'Property'),
-(3, 'ATK');
+(3, 'ATK'),
+(4, 'Transportasi'),
+(5, 'Mebel');
 
 -- --------------------------------------------------------
 
@@ -92,7 +96,9 @@ CREATE TABLE `tb_peminjaman` (
 --
 
 INSERT INTO `tb_peminjaman` (`id_pinjam`, `id_barang`, `id_user`, `tanggal_pinjam`, `tanggal_kembali`, `jumlah`, `status_transaksi`, `status_pengajuan`, `id_kategori`) VALUES
-(1, 1, 1, '2021-09-16 23:27:40.000000', '2021-09-21 23:27:40.000000', 1, '1', '1', 1);
+(1, 1, 1, '2021-09-20 00:00:00.000000', '2021-09-21 00:00:00.000000', 2, '0', '0', 1),
+(2, 1, 1, '2021-09-18 12:34:39.000000', '0000-00-00 00:00:00.000000', 3, '', '', 1),
+(3, 1, 2, '2021-09-21 06:43:36.000000', '2021-09-24 00:00:00.000000', 2, '1', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -159,19 +165,19 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT untuk tabel `tb_barang`
 --
 ALTER TABLE `tb_barang`
-  MODIFY `id_barang` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_barang` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
-  MODIFY `id_kategori` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kategori` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_peminjaman`
 --
 ALTER TABLE `tb_peminjaman`
-  MODIFY `id_pinjam` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pinjam` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`
