@@ -18,6 +18,7 @@
         public function hitung_stok()
         {
             return $this->db->query("SELECT sum(stok) barang FROM tb_barang")->row();
+            
         }
 
         public function jumlah_barang()

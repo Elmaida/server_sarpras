@@ -4,7 +4,7 @@
 
         function get_data()
         { 
-            return $this->db->query("SELECT p.id_pinjam, b.nama, u.nama_user, p.tanggal_pinjam, p.tanggal_kembali, p.jumlah, p.status_transaksi, p.status_pengajuan, k.nama_kategori FROM tb_peminjaman AS p
+            return $this->db->query("SELECT p.id_pinjam, b.nama, u.nama_user, p.tanggal_pinjam, p.tanggal_kembali, p.jumlah, p.status_transaksi, k.nama_kategori FROM tb_peminjaman AS p
             JOIN tb_barang AS b ON b.id_barang=p.id_barang
             JOIN tb_user as u ON u.id_user=p.id_user
             JOIN tb_kategori as k ON k.id_kategori=p.id_kategori")->result();
@@ -30,7 +30,6 @@
                 'jumlah' => $post['jumlah'],
                 'tanggal_kembali' => $post['tanggal_kembali'],
                 'status_transaksi' => $post['status_transaksi'],
-                'status_pengajuan' => $post['status_pengajuan'],
                 'tanggal_pinjam' => $post ['tanggal_pinjam'],
             );
             return $this->db->insert('tb_peminjaman', $data);

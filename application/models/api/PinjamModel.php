@@ -21,6 +21,15 @@ class PinjamModel extends CI_Model
         ->get('tb_peminjaman')->row_array();
     }
 
+    public function get_riwayat()
+    {
+        return $this->db->from('tb_peminjaman AS p') -> select ('b.nama, p.jumlah, p.tanggal_pinjam, p.tanggal_kembali, p.status_transaksi')
+		->join('tb_barang AS b', 'p.id_barang = b.id_barang' )
+
+        ->get()
+        ->result();
+    }
+
 	public function add($post)
     {
         $data = array(

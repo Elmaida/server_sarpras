@@ -25,7 +25,6 @@
                             <th class="text-center">Tanggal Kembali</th>
                             <th class="text-center">Jumlah Barang</th>
                             <th class="text-center">Status Transaksi</th>
-                            <th class="text-center">Status Pengajuan </th>
                             <th class="text-center " style = "center" width = 500px>Aksi</th>
                         </tr>
                     </thead>
@@ -53,13 +52,6 @@
                         <?php } ?> 
 
                         </td>
-                        <td><?php if ($row->status_pengajuan == 0) { ?> 
-                            <a href="#<?= $row->status_pengajuan ?>" class="btn btn-success btn-sm">Diterima</a></td>
-                        <?php } else { ?>
-                            <a href="#<?= $row->status_pengajuan?>" class="btn btn-danger btn-sm">Ditolak</a>
-                            <?php } ?> 
-                  
-                        <td>
                         <a href="peminjaman/edit/<?= $row->id_pinjam ?>"class="btn btn-warning btn-sm"><i class="far fa-edit"></i> Edit</a>
                         <a href="peminjaman/delete/<?= $row->id_pinjam ?>" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Hapus</a>
                         </td>

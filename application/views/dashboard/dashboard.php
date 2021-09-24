@@ -32,8 +32,17 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body text-center">
                                         <h5 class="card-title">JUMLAH PEMINJAM</h5>
-                                        <div class="display-4 "><h1><?= $id_pinjam->pinjam;
-                                            ?></h1>
+                                        <div class="display-4 "><h1>
+                                            <!-- <?= $id_pinjam->pinjam;?> -->
+                                            <?php if ($row->status_transaksi == 0) { ?> 
+                                                <a href="peminjaman/edit/<?= $row->status_transaksi ?>" class="btn btn-warning btn-sm">Pinjam</a>
+                                                <?php } elseif ($row->status_transaksi == 1) { ?> 
+                                                    <a href="peminjaman/edit/<?= $row->status_transaksi ?>" class="btn btn-success btn-sm">Kembali</a>
+                                            <?php } else { ?>
+                                                <a href="peminjaman/edit/<?= $row->status_transaksi ?>" class="btn btn-danger btn-sm">Hilang</a>
+                                            <?php } ?> 
+
+                                        </h1>
                                         </div>
                                     </div>
                                 </div>
@@ -42,7 +51,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body text-center">
                                         <h5 class="card-title">JUMLAH KATEGORI</h5>
-                                        <div class="display-4 "><h1><?= $id_kategori->kategori;
+                                        <div class="display-4 "><h1><?= $id_kategori->kategori
                                             ?></h1>
                                         </div>
                                     </div>
