@@ -30,6 +30,7 @@
                 'jumlah' => $post['jumlah'],
                 'tanggal_kembali' => $post['tanggal_kembali'],
                 'status_transaksi' => $post['status_transaksi'],
+                'status_pengajuan' => $post['status_pengajuan'],
                 'tanggal_pinjam' => $post ['tanggal_pinjam'],
             );
             return $this->db->insert('tb_peminjaman', $data);

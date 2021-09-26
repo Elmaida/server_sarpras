@@ -9,7 +9,7 @@ use \Firebase\JWT\JWT;
 
 class Kategori extends API_Controller 
 {
-	private $secret = 'this is key secret';
+	private $secret = 'this key is secret';
 
     public function __construct()
     {

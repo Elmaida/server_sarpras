@@ -34,8 +34,8 @@ class PinjamModel extends CI_Model
     {
         $data = array(
             'id_user' => $post['id_user'],
-            'id_barang' => $post['id_barang'],
-            'id_kategori' => $post['id_kategori'],
+            // 'id_barang' => $post['id_barang'],
+            // 'id_kategori' => $post['id_kategori'],
 			'jumlah' => $post['stok'],
 			'tanggal_kembali' => $post['tkembali'],
             'tanggal_pinjam' => date("Y-m-d H:i:s")

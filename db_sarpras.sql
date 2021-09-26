@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Sep 2021 pada 08.32
+-- Waktu pembuatan: 24 Sep 2021 pada 10.11
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.2
 
@@ -43,14 +43,16 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id_barang`, `id_kategori`, `nama`, `stok`, `harga`, `tanggal`, `create_date`) VALUES
-(2, 1, 'Monitor', 5, 7500000, '2021-09-07', '2021-09-17 05:45:25'),
-(3, 1, 'Kabel Panjang', 20, 50000, '2021-09-06', '2021-09-19 02:13:43'),
-(4, 1, 'handphone', 1, 2000, '2021-09-17', '2021-09-17 08:28:20'),
-(5, 5, 'Monitor Samsung', 10, 2000000, '2021-09-17', '2021-09-17 10:06:30'),
-(6, 1, 'Keyboard Logitec', 6, 380000, '2021-01-26', '2021-09-21 05:13:43'),
-(7, 1, 'Mouse Logitec', 6, 120000, '2021-09-15', '2021-09-21 04:12:06'),
-(8, 4, 'Bolpoin', 7, 5000, '2021-09-17', '2021-09-21 04:53:06'),
-(9, 4, 'penghapus', 4, 500, '2021-09-21', '2021-09-21 13:15:45');
+(1, 1, 'Monitor ', 12, 10000000, '2021-09-01', '2021-09-24 07:53:52'),
+(2, 1, 'Kabel Panjang', 10, 50000, '2021-09-23', '2021-09-24 07:54:56'),
+(3, 1, 'Handphone', 50, 3500000, '2021-01-01', '2021-09-24 08:00:15'),
+(4, 1, 'Monitor Samsung ', 20, 5000000, '2021-02-02', '2021-09-24 08:00:15'),
+(5, 1, 'Keyboard', 5, 500000, '2021-03-22', '2021-09-24 08:00:15'),
+(6, 1, 'Mouse ', 25, 750000, '2021-09-01', '2021-09-24 08:00:16'),
+(7, 3, 'Bolpoin ', 50, 1200, '2020-11-01', '2021-09-24 08:00:16'),
+(8, 3, 'Penghapus', 12, 500000, '2020-09-08', '2021-09-24 08:00:16'),
+(9, 4, 'Sepeda Gunung', 10, 3500000, '2021-09-24', '2021-09-24 08:00:16'),
+(10, 5, 'Kursi', 6, 2500000, '2020-01-28', '2021-09-24 08:00:16');
 
 -- --------------------------------------------------------
 
@@ -97,18 +99,7 @@ CREATE TABLE `tb_peminjaman` (
 --
 
 INSERT INTO `tb_peminjaman` (`id_pinjam`, `id_barang`, `id_user`, `tanggal_pinjam`, `tanggal_kembali`, `tanggal_kembali_barang`, `jumlah`, `status_transaksi`, `id_kategori`) VALUES
-(1, 2, 1, '2021-09-22 00:00:00.000000', '2021-09-23 00:00:00.000000', '0000-00-00', 1, '2', 1),
-(2, 3, 1, '2021-09-15 00:00:00.000000', '2021-09-21 00:00:00.000000', '0000-00-00', 3, '1', 1),
-(3, 4, 2, '2021-09-15 00:00:00.000000', '2021-09-24 00:00:00.000000', '0000-00-00', 2, '3', 1),
-(4, 2, 16, '2021-09-24 11:18:06.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 2, '', 1),
-(5, 2, 16, '2021-09-24 11:18:24.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 2, '', 1),
-(6, 2, 16, '2021-09-24 11:19:24.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 2, '', 1),
-(7, 2, 16, '2021-09-24 11:19:42.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 2, '', 1),
-(8, 2, 16, '2021-09-24 11:37:40.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 2, '', 1),
-(9, 2, 16, '2021-09-24 11:37:58.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 2, '', 1),
-(10, 2, 16, '2021-09-24 12:36:25.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 5, '', 1),
-(11, 2, 16, '2021-09-24 12:38:31.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 5, '', 1),
-(12, 2, 16, '2021-09-24 12:41:40.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 5, '', 1);
+(1, 2, 1, '2021-09-24 15:05:05.000000', '0000-00-00 00:00:00.000000', '0000-00-00', 3, '', 1);
 
 -- --------------------------------------------------------
 
@@ -133,12 +124,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nim`, `nama_user`, `jurusan`, `alamat`, `email`, `password`, `no_hp`, `role`) VALUES
-(16, '201869040030', 'Aulia', 'Teknik Informatika', 'Purwosari', 'aulia123@gmail.com', '$2y$11$izCz08lykEn0DjajKmwG0uYKPSUdGElTv7By.uJL7ZlKkdA4tOpka', '081234678098', 'User'),
-(17, '201869040030', 'Aul', 'Teknik Informatika', 'Purwosari', 'aulia13@gmail.com', '$2y$11$cR1wtRqwTWHchsSoRsBkZ.zOD7L4fJDFvLh.EQ1LgtyCKrNQ8BKl2', '081234678098', 'User'),
-(18, '201869040030', 'Elma', 'Teknik Informatika', 'Purwosari', 'elma13@gmail.com', '$2y$11$naDgtDc883p2DD6e.iMJh.vCvLiRTiHpng9NkgZrAOqh3FObb78dy', '081234678098', 'User'),
-(19, '201869040001', 'Lia', 'Teknik Informatika', 'Purwosari', 'aulia123@gmail.com', '$2y$11$6/JNdLayOlHMGRxYcq4M/OiyGScuxURCJn6GIOhg6za2AvronFhHu', '081234678098', 'User'),
-(20, '201869040001', 'Elmaida', 'Teknik Informatika', 'Purwosari', 'Elma113@gmail.com', '$2y$11$0Zf5EyfLZtvifY8JTNL8cOhhY4jCgBE.FEpkrKC.hTSiqzwVA8Rfq', '081234678098', 'User'),
-(21, '201869040030', 'Andi', 'Teknik Informatika', 'Purwosari', 'andi23@gmail.com', '$2y$11$djjVk.y.GHqH/XmtcxN4iOAfABQhiFs0oI28Dsaac.RKKopIGWc9y', '081234678098', 'User');
+(1, '201869040030', 'fida', 'Teknik Informatika', 'Purwosari', 'tul123@gmail.com', '$2y$11$ojWPRQsqSdrJgrWB5g3Pt.zTNjcVr/ME9y9QTMQDRdNGI0QRX8NKe', '081234678098', 'User');
 
 --
 -- Indexes for dumped tables
@@ -180,7 +166,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT untuk tabel `tb_barang`
 --
 ALTER TABLE `tb_barang`
-  MODIFY `id_barang` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_barang` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kategori`
@@ -192,13 +178,13 @@ ALTER TABLE `tb_kategori`
 -- AUTO_INCREMENT untuk tabel `tb_peminjaman`
 --
 ALTER TABLE `tb_peminjaman`
-  MODIFY `id_pinjam` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_pinjam` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_user` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

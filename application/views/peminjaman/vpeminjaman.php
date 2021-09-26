@@ -25,6 +25,7 @@
                             <th class="text-center">Tanggal Kembali</th>
                             <th class="text-center">Jumlah Barang</th>
                             <th class="text-center">Status Transaksi</th>
+                            <th class="text-center">Status Pengajuan</th>
                             <th class="text-center " style = "center" width = 500px>Aksi</th>
                         </tr>
                     </thead>
@@ -44,13 +45,24 @@
                         <td><?= $row->jumlah?></td>
                         <td>
                         <?php if ($row->status_transaksi == 0) { ?> 
-                            <a href="#<?= $row->status_transaksi ?>" class="btn btn-warning btn-sm">Pinjam</a>
+                            <a href="#<?= $row->status_transaksi ?>" class="btn btn-primary btn-sm">Proses</a>
                             <?php } elseif ($row->status_transaksi == 1) { ?> 
-                                <a href="#<?= $row->status_transaksi ?>" class="btn btn-primary btn-sm">Kembali</a>
-                        <?php } else { ?>
+                                <a href="#<?= $row->status_transaksi ?>" class="btn btn-warning btn-sm">Pinjam</a>
+                            <?php } elseif ($row->status_transaksi == 2) { ?> 
+                                <a href="#<?= $row->status_transaksi ?>" class="btn btn-success btn-sm">Kembali</a>
+                            <?php } elseif ($row->status_transaksi == 3) { ?> 
+                                <a href="#<?= $row->status_transaksi ?>" class="btn btn-secondary btn-sm">Ganti Rugi</a>
+                         <?php }else { ?>
                             <a href="#<?= $row->status_transaksi ?>" class="btn btn-danger btn-sm">Hilang</a>
                         <?php } ?> 
+                        </td>
 
+                        <td>
+                            <?php if($row->status_pengajuan == 1){ ?>
+                            <a href="#<?= $row->status_pengajuan ?>" class="btn btn-success btn-sm">Diterima</a>
+                            <?php }else { ?>
+                            <a href="#<?= $row->status_pengajuan?>" class="btn btn-danger btn-sm">Ditolak</a>   
+                        <?php } ?>
                         </td>
                         <a href="peminjaman/edit/<?= $row->id_pinjam ?>"class="btn btn-warning btn-sm"><i class="far fa-edit"></i> Edit</a>
                         <a href="peminjaman/delete/<?= $row->id_pinjam ?>" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Hapus</a>

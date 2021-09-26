@@ -31,6 +31,100 @@ class BarangModel extends CI_Model
         // return $data;
     }
 
+    public function hitung_pinjam()
+    {
+        $data = [];
+        $barangs = $this->db->get('tb_barang')->result();
+
+        foreach($barangs as $key => $value) {
+            $jumlah=0;
+            $peminjaman = $this->stok_pinjam($value->id_barang);
+
+            foreach($peminjaman as $key => $pinjam){
+                $jumlah = $jumlah + $pinjam->jumlah;
+            }
+
+            $row = array(
+                'id_barang' => $value->id_barang,
+                'nama_barang' => $value->nama,
+                'stok' => $value->stok - $jumlah,
+                'harga' => $value -> harga,
+            );
+            $data[] = $row;
+        }
+        return $data;
+    }
+    private function stok_pinjam ($id_barang)
+    {
+        return $this->db->from('tb_peminjaman')
+        ->where('id_barang', $id_barang)
+        ->where('status_transaksi', 1)
+        ->get()->result();
+    }
+
+
+    public function hitung_kembali()
+    {
+        $data = [];
+        $barangs = $this->db->get('tb_barang')->result();
+
+        foreach($barangs as $key => $value) {
+            $jumlah=0;
+            $peminjaman = $this->stok_kembali($value->id_barang);
+
+            foreach($peminjaman as $key => $pinjam){
+                $jumlah = $jumlah + $kembali->jumlah;
+            }
+
+            $row = array(
+                'id_barang' => $value->id_barang,
+                'nama_barang' => $value->nama,
+                'stok' => $value->stok + $jumlah,
+                'harga' => $value -> harga,
+            );
+            $data[] = $row;
+        }
+        return $data;
+    }
+    private function stok_kembali ($id_barang)
+    {
+        return $this->db->from('tb_peminjaman')
+        ->where('id_barang', $id_barang)
+        ->where('status_transaksi', 2)
+        ->get()->result();
+    }
+
+    public function hitung_ganti()
+    {
+        $data = [];
+        $barangs = $this->db->get('tb_barang')->result();
+
+        foreach($barangs as $key => $value) {
+            $jumlah=0;
+            $peminjaman = $this->stok_ganti($value->id_barang);
+
+            foreach($peminjaman as $key => $pinjam){
+                $jumlah = $jumlah + $ganti->jumlah;
+            }
+
+            $row = array(
+                'id_barang' => $value->id_barang,
+                'nama_barang' => $value->nama,
+                'stok' => $value->stok + $jumlah,
+                'harga' => $value -> harga,
+            );
+            $data[] = $row;
+        }
+        return $data;
+    }
+    private function stok_hilang ($id_barang)
+    {
+        return $this->db->from('tb_peminjaman')
+        ->where('id_barang', $id_barang)
+        ->where('status_transaksi', 3 )
+        ->get()->result();
+    }
+
     
 }
 

@@ -12,7 +12,7 @@ use \Firebase\JWT\JWT;
 
 class Barang extends API_Controller 
 {
-	private $secret = 'this is key secret';
+	private $secret = 'this key is secret';
 
     public function __construct()
     {
@@ -53,6 +53,54 @@ class Barang extends API_Controller
 			];
 			return  $this->api_return($data, 200);
 		}
+
+	public function stok_pinjam(){
+		header("Access-Control-Allow-Origin: *");
+		$this->_apiConfig([
+			'methods' => ['GET'],
+		]);
+
+			$produk = $this->barang->hitung_pinjam();
+			$data = [
+				'status' => 'succes',
+				'data' => $produk,
+				'message' => 'berhasil di get',
+			];
+			return  $this->api_return($data, 200);
+		
+	}
+
+	public function stok_kembali(){
+		header("Access-Control-Allow-Origin: *");
+		$this->_apiConfig([
+			'methods' => ['GET'],
+		]);
+
+			$produk = $this->barang->hitung_kembali();
+			$data = [
+				'status' => 'succes',
+				'data' => $produk,
+				'message' => 'berhasil di get',
+			];
+			return  $this->api_return($data, 200);
+		
+	}
+
+	public function stok_ganti(){
+		header("Access-Control-Allow-Origin: *");
+		$this->_apiConfig([
+			'methods' => ['GET'],
+		]);
+
+			$produk = $this->barang->hitung_ganti();
+			$data = [
+				'status' => 'succes',
+				'data' => $produk,
+				'message' => 'berhasil di get',
+			];
+			return  $this->api_return($data, 200);
+		
+	}
 		// $data = [
 		// 	'status' => 'succes',
 		// 	'data' => $barang,

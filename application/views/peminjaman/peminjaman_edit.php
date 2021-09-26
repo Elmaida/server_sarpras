@@ -40,7 +40,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="status_transaksi" class="form-label">Status Transaksi</label>
-                                <input type="text" class="form-control" name="status_transaksi"  value="<?= $status_transaksi ?>" placeholder="Masukkan StatusTransaksi">
+                                <input type="text" class="form-control" name="status_transaksi"  value="<?= $status_transaksi ?>" placeholder="Masukkan Status Transaksi">
+                            </div>
+                            <div class="mb-3">
+                                <label for="status_pengajuan" class="form-label">Status Pengajuan</label>
+                                <input type="text" class="form-control" name="status_pengajuan"  value="<?= $status_pengajuan ?>" placeholder="Masukkan Status Pengajuan">
                             </div>
                             <input type="hidden" name="id" value="<?= $id_pinjam ?>"/>
                             <button type="submit" class="btn btn-success">Simpan</button>
